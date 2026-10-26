@@ -9,6 +9,6 @@ main(int argc, char *argv[])
         exit(1);
     }
 
-    sleep(atoi(argv[1]));
+    pause(atoi(argv[1]));   // was sleep() before Aug 2025
     exit(0);
 }
