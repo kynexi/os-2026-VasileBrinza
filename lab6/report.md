@@ -16,7 +16,7 @@
 ## Part 3: Limits
 - Filename length limited by `DIRSIZ` (14 bytes); longer names are truncated.
 - Max file size: $12 \text{ direct} + 256 \text{ indirect} = 268 \text{ blocks} \times 1024 \text{ bytes} = 274,432 \text{ bytes}$ (~268 KB).
-- Disk metadata (`nmeta`): 46 metadata blocks, 954 data blocks out of 1000 total blocks.
+- Disk layout (`nmeta 47 (boot, super, log blocks 31, inode blocks 13, bitmap blocks 1) blocks 1953 total 2000`): 2000 blocks in total – 47 metadata blocks (boot 1, super 1, log 31, inodes 13, bitmap 1) and 1953 data blocks.
 
 ## Part 4: Recursive find
 - Implemented `user/find.c` to traverse directories recursively while skipping `.` and `..`.
