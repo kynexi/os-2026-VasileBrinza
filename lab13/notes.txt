@@ -1,0 +1,7 @@
+1. Without the semaphore lock, output from different processes is mixed because each character is written in a separate system call. The scheduler can switch processes between writes.
+
+2. The critical section in mix.c is the code between sem_down(3) and sem_up(3), where a process prints its entire line.
+
+3. The while loop in sem_down is necessary because a process can wake up even if the semaphore value is still zero. Another process may acquire the semaphore first, so the condition must be checked again.
+
+4. The spinlock must be released before calling sleep. Otherwise, a process could sleep while holding the lock, preventing sem_up from acquiring it and waking the waiting process. This could cause a deadlock.
